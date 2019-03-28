@@ -46,7 +46,7 @@ public:
 
 	bool Initialize(HINSTANCE, HWND, int, int);
 	void Shutdown();
-	bool Frame();
+	bool Frame(int, int);
 
 private:
 	//bool Render(float);
