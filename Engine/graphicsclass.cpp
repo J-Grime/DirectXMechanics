@@ -423,10 +423,29 @@ void GraphicsClass::Shutdown()
 }
 
 
+<<<<<<< HEAD
 bool GraphicsClass::Frame()
 {
 	bool result;
 
+=======
+bool GraphicsClass::Frame(int mouseX, int mouseY)
+{
+	bool result;
+
+
+	// Set the location of the mouse.
+	result = m_Text->SetMousePosition(mouseX, mouseY, m_D3D->GetDeviceContext());
+	if (!result)
+	{
+		return false;
+	}
+
+	// Set the position of the camera.
+	m_Camera->SetPosition(0.0f, 0.0f, -10.0f);
+
+	return true;
+>>>>>>> cd5eacbc5b9d5c1225f731d62979680b86a0860e
 	// Update the system stats.
 	m_Timer->Frame();
 

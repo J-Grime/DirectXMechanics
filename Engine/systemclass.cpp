@@ -42,7 +42,17 @@ bool SystemClass::Initialize()
 	}
 
 	// Initialize the input object.
+<<<<<<< HEAD
 	m_Input->Initialize(m_hinstance, m_hwnd, screenWidth, screenHeight);
+=======
+	result = m_Input->Initialize(m_hinstance, m_hwnd, screenWidth, screenHeight);
+	if (!result)
+	{
+		MessageBox(m_hwnd, L"Could not initialize the input object.", L"Error", MB_OK);
+		return false;
+	}
+
+>>>>>>> cd5eacbc5b9d5c1225f731d62979680b86a0860e
 
 	// Create the graphics object.  This object will handle rendering all the graphics for this application.
 	m_Graphics = new GraphicsClass;
@@ -113,6 +123,7 @@ void SystemClass::Run()
 		}
 		else
 		{
+<<<<<<< HEAD
 			// Otherwise do the frame processing.
 			result = Frame();
 			if (!result)
@@ -121,6 +132,21 @@ void SystemClass::Run()
 			}
 		}
 
+=======
+			// Otherwise do the frame processing.  If frame processing fails then exit.
+			result = Frame();
+			if (!result)
+			{
+				MessageBox(m_hwnd, L"Frame Processing Failed", L"Error", MB_OK);
+				done = true;
+			}
+		}
+		// Check if the user pressed escape and wants to quit.
+		if (m_Input->IsEscapePressed() == true)
+		{
+			done = true;
+		}
+>>>>>>> cd5eacbc5b9d5c1225f731d62979680b86a0860e
 	}
 
 	return;
@@ -130,6 +156,10 @@ void SystemClass::Run()
 bool SystemClass::Frame()
 {
 	bool result;
+<<<<<<< HEAD
+=======
+	int mouseX, mouseY;
+>>>>>>> cd5eacbc5b9d5c1225f731d62979680b86a0860e
 
 	// Read the user input.
 	result = m_Input->Frame();
@@ -138,6 +168,19 @@ bool SystemClass::Frame()
 		return false;
 	}
 
+<<<<<<< HEAD
+=======
+	// Get the location of the mouse from the input object,
+	m_Input->GetMouseLocation(mouseX, mouseY);
+
+	// Do the frame processing for the graphics object.
+	result = m_Graphics->Frame(mouseX, mouseY);
+	if (!result)
+	{
+		return false;
+	}
+
+>>>>>>> cd5eacbc5b9d5c1225f731d62979680b86a0860e
 	// Check if the user pressed escape and wants to exit the application.
 	if (m_Input->IsEscapePressed() == true)
 	{
@@ -145,7 +188,11 @@ bool SystemClass::Frame()
 	}
 
 	// Do the frame processing for the graphics object.
+<<<<<<< HEAD
 	result = m_Graphics->Frame();
+=======
+	result = m_Graphics->Frame(mouseX,mouseX);
+>>>>>>> cd5eacbc5b9d5c1225f731d62979680b86a0860e
 	if (!result)
 	{
 		return false;

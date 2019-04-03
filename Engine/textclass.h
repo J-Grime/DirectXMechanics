@@ -43,6 +43,10 @@ public:
 	bool Render(ID3D11DeviceContext*, const XMMATRIX&, const XMMATRIX&);
 
 	bool SetIntersection(bool, ID3D11DeviceContext*);
+<<<<<<< HEAD
+=======
+	bool SetMousePosition(int, int, ID3D11DeviceContext*);
+>>>>>>> cd5eacbc5b9d5c1225f731d62979680b86a0860e
 
 private:
 	bool InitializeSentence(SentenceType**, int, ID3D11Device*);
@@ -56,7 +60,11 @@ private:
 	int m_screenWidth, m_screenHeight;
 	XMMATRIX m_baseViewMatrix;
 	SentenceType* m_sentence1;
+<<<<<<< HEAD
 
+=======
+	SentenceType* m_sentence2;
+>>>>>>> cd5eacbc5b9d5c1225f731d62979680b86a0860e
 	
 
 	IFW1Factory* m_pFW1Factory;
